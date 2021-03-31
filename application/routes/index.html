@@ -22,9 +22,10 @@ function searchYear(year)
 
             table += "<tr>";
             table += "<td> " + String(db[i]["category"]) + " </td>";
-            table += "<td> " + String(db[i]["entity"]) + " </td>";
+            table += "<td> " + String(db[i]["name"]) + " </td>";
+            table += "<td> " + String(db[i]["film"]) + " </td>";
+            table += "<td> " + String(db[i]["year_ceremony"]) + " </td>";
             table += "<td> " + String(db[i]["winner"]) + " </td>";
-            table += "<td> " + String(db[i]["year"]) + " </td>";
             table += "</tr>";
 
         }
@@ -40,8 +41,8 @@ function searchYear(year)
 <div id="demo">
 <h1>Search</h1>
   <label for="fname">Year:</label><br>
-  <input type="text" id="year_film" name="year"><br>
-  <button onclick="searchYear(document.getElementById('year_film').value)">Search</button>
+  <input type="text" id="fyear" name="year"><br>
+  <button onclick="searchYear(document.getElementById('fyear').value)">Search</button>
 </div>
 
 <div>
