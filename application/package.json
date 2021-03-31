@@ -1,7 +1,7 @@
 {
   "name": "application",
   "version": "1.0.0",
-  "description": "First version of REST APIs",
+  "description": "Initial application",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
