@@ -1,13 +1,13 @@
 var appRouter = function (app) {
-    app.get("/", function(req, res) {
+    /*app.get("/", function(req, res) {
       res.status(200).send("Welcome to our restful API");
+    });*/
+
+    app.get("/search?=:year", function(req, res) {
+        res.status(200).send(year);
     });
 
-    app.get("/search", function(req, res) {
-        res.status(200).send("Welcome to the search");
-    });
-
-    app.get("/index", function(req, res) {
+    app.get("/", function(req, res) {
       res.status(200).sendFile('/index.html', {root: __dirname})
     });
   }
