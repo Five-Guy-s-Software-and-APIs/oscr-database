@@ -1,0 +1,22 @@
+[
+    {
+      "category": "ACTOR IN A LEADING ROLE",
+      "entity": "Jack Nicholson",
+      "winner": false,
+      "year": 1985
+    },
+    {
+      "category": "ACTOR IN A LEADING ROLE",
+      "entity": "Heath Ledger",
+      "winner": true,
+      "year": 2002
+    },
+    {
+
+       "category": "SOUND MIXING",
+       "entity": "Hacksaw Ridge",
+       "winner": true,
+       "year": 2016
+    }
+
+]
