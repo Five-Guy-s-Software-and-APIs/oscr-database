@@ -1,0 +1,19 @@
+{
+  "name": "application",
+  "version": "1.0.0",
+  "description": "First version of REST APIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/malachidohmen/Five-Guys-Software-and-APIs.git"
+  },
+  "author": "Emmanuel Castrejon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/malachidohmen/Five-Guys-Software-and-APIs/issues"
+  },
+  "homepage": "https://github.com/malachidohmen/Five-Guys-Software-and-APIs#readme"
+}
