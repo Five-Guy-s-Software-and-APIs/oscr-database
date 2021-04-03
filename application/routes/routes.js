@@ -1,5 +1,6 @@
 const path = require("path");
 const data = require(path.resolve('data.json'));
+const search = require('../lib/search');
 
 var appRouter = function (app) {
   app.get("/", (req, res) => {
@@ -13,8 +14,11 @@ var appRouter = function (app) {
             result.push(nominee);
         }
     }
-    res.status(200).json(result);
+
+    var html = search.formatSearchResult(result);
+
+    res.status(200).set('Content-Type', 'text/html').send(html);
   });
 }
-  
+
   module.exports = appRouter;
