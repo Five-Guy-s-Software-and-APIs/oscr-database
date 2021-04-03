@@ -50,11 +50,22 @@
     <input type="submit" value="Send" accesskey="\n">
 </div> -->
 
-<form action="/year" method="GET">
+<form action="/search" method="GET">
     <div>
         <label for="fyear">Year of film</label>
         <input type="text" name="year" id="fyear">
-
+    </div>
+    <div>
+        <label for="name">Name of nominee/winner</label>
+        <input type="text" name="name" id="name">
+    </div>
+    <div>
+        <label for="category">Category</label>
+        <input type="text" name="category" id="category">
+    </div>
+    <div>
+        <label for="winner">Show only winners</label>
+        <input type="checkbox" name="winner" id="winner">
     </div>
     <div>
         <button>Search</button>
