@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+
+<!-- <script src="data.js"> </script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="response.js"></script> -->
+
+<script type = "text/javascript">
+
+// function searchYear(year)
+// {
+//     console.log(year);
+//     var table = "<tr><th>Category</th><th>Name</th><th>Film</th><th>Year</th><th>Winner</th></tr>";
+//     for(var i=0; i<db.length; ++i)
+//     {
+//         if(db[i]["year_ceremony"] == String(year))
+//         {
+//             //console.log("Found " + db[i]["entity"])
+
+
+//             table += "<tr>";
+//             table += "<td> " + String(db[i]["category"]) + " </td>";
+//             table += "<td> " + String(db[i]["name"]) + " </td>";
+//             table += "<td> " + String(db[i]["film"]) + " </td>";
+//             table += "<td> " + String(db[i]["year_ceremony"]) + " </td>";
+//             table += "<td> " + String(db[i]["winner"]) + " </td>";
+//             table += "</tr>";
+
+//         }
+//     }
+//     document.getElementById('output_table').innerHTML  = table;
+
+// }
+
+
+</script>
+
+
+<div id="demo">
+<h1>Search</h1>
+  <!-- <label for="fname">Year:</label><br>
+  <input type="text" id="fyear" name="year"><br>
+  <button onclick="searchYear(document.getElementById('fyear').value)">Search</button>
+</div>
+<div>
+    <input type="submit" value="Send" accesskey="\n">
+</div> -->
+
+<form action="/year" method="GET">
+    <div>
+        <label for="fyear">Year of film</label>
+        <input type="text" name="year" id="fyear">
+
+    </div>
+    <div>
+        <button>Search</button>
+    </div>
+</form>
+
+
+<!-- <div>
+    <table style="word-break:break-all;"; id="output_table">
+
+
+   </table>
+</div> -->
+
+
+</body>
+</html>
