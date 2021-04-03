@@ -15,8 +15,27 @@ var appRouter = function (app) {
         result.push(nominee);
       }
     }
-    res.status(200).json(result);
+
+    for(const nominee of data) {
+        if(nominee.name === req.query.name) {
+            result.push(nominee);
+        }
+    }
+
+    for(const nominee of data) {
+        if(nominee.category === req.query.category) {
+            result.push(nominee);
+        }
+    }
+
+    res.status(200).json(result); //Returns JSON string of all pushed awards
   });
+
+
+
+
+
+
 }
-  
+
   module.exports = appRouter;
