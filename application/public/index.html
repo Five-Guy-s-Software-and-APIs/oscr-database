@@ -11,30 +11,24 @@
 
 <script type = "text/javascript">
 
-// function searchYear(year)
-// {
-//     console.log(year);
-//     var table = "<tr><th>Category</th><th>Name</th><th>Film</th><th>Year</th><th>Winner</th></tr>";
-//     for(var i=0; i<db.length; ++i)
-//     {
-//         if(db[i]["year_ceremony"] == String(year))
-//         {
-//             //console.log("Found " + db[i]["entity"])
+ function dispResults(db)
+ {
 
+    var table = "<tr><th>Category</th><th>Name</th><th>Film</th><th>Year</th><th>Winner</th></tr>";
+    for(var i=0; i<db.length; ++i)
+     {
+             table += "<tr>";
+             table += "<td> " + String(db[i]["category"]) + " </td>";
+             table += "<td> " + String(db[i]["name"]) + " </td>";
+             table += "<td> " + String(db[i]["film"]) + " </td>";
+             table += "<td> " + String(db[i]["year_ceremony"]) + " </td>";
+             table += "<td> " + String(db[i]["winner"]) + " </td>";
+             table += "</tr>";
+     }
 
-//             table += "<tr>";
-//             table += "<td> " + String(db[i]["category"]) + " </td>";
-//             table += "<td> " + String(db[i]["name"]) + " </td>";
-//             table += "<td> " + String(db[i]["film"]) + " </td>";
-//             table += "<td> " + String(db[i]["year_ceremony"]) + " </td>";
-//             table += "<td> " + String(db[i]["winner"]) + " </td>";
-//             table += "</tr>";
+     document.getElementById('output_table').innerHTML  = table;
 
-//         }
-//     }
-//     document.getElementById('output_table').innerHTML  = table;
-
-// }
+ }
 
 
 </script>
@@ -50,7 +44,23 @@
     <input type="submit" value="Send" accesskey="\n">
 </div> -->
 
-<form id="search" action="/search" method="GET">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+  $("#sub_button").click(function(){
+    $.get("/search",
+      {
+      year_film : document.getElementById("fyear").value,
+      name : document.getElementById("name").value,
+      category : document.getElementById("category").value},
+
+      function(data, status){
+      dispResults(data);
+    });
+  });
+});
+</script>
     <div>
         <label for="fyear">Year of film</label>
         <input type="text" name="year_film" id="fyear">
@@ -68,10 +78,15 @@
         <input type="checkbox" name="winner" id="winner">
     </div>
     <div>
-        <button>Search</button>
+        <button id="sub_button">Search</button>
     </div>
-</form>
 
+    <div>
+    <table style="word-break:break-all;"; id="output_table">
+
+
+   </table>
+</div>
 
 <div>
     <table style="word-break:break-all;"; id="output_table">
