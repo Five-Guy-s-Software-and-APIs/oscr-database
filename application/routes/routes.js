@@ -9,9 +9,11 @@ var appRouter = function (app) {
   app.get("/search", (req, res) => {
     let result = [];
     for(const nominee of data) {
-        if(parseInt(nominee.year_film) === parseInt(req.query.year)) {
-            result.push(nominee);
-        }
+
+
+      if(parseInt(nominee.year_film) === parseInt(req.query.year)) {
+        result.push(nominee);
+      }
     }
     res.status(200).json(result);
   });
