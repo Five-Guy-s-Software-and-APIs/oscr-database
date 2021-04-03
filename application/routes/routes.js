@@ -8,27 +8,26 @@ var appRouter = function (app) {
 
   app.get("/search", (req, res) => {
     let result = [];
-    for(const nominee of data) {
 
-
-      if(parseInt(nominee.year_film) === parseInt(req.query.year)) {
-        result.push(nominee);
-      }
+    //If the user doens't enter any search paramiters return nothing
+    if((req.query.year_film == "" && req.query.name == "" && req.query.category == "" ))
+    {
+      res.status(200).json([]);
+      return;
     }
 
     for(const nominee of data) {
-        if(nominee.name === req.query.name) {
-            result.push(nominee);
-        }
-    }
 
-    for(const nominee of data) {
-        if(nominee.category === req.query.category) {
-            result.push(nominee);
-        }
+        if((req.query.year_film == "" || parseInt(nominee.year_film) == parseInt(req.query.year_film)) &&
+           (req.query.name == "" || nominee.name == req.query.name) &&
+            (req.query.category == "" || nominee.category == req.query.category)){
+
+              result.push(nominee);
+            }
     }
 
     res.status(200).json(result); //Returns JSON string of all pushed awards
+
   });
 
 
