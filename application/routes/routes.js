@@ -8,14 +8,13 @@ var appRouter = function (app) {
   });
 
   app.get("/search", (req, res) => {
-    let result = [];
-    for(const nominee of data) {
-        if(parseInt(nominee.year_film) === parseInt(req.query.year)) {
-            result.push(nominee);
-        }
-    }
+    let result = data.filter(nominee => {
+      return ((!req.query.year || (parseInt(nominee.year_film) == parseInt(req.query.year)))
+              && (!req.query.name || nominee.name.toUpperCase().includes(req.query.name.toUpperCase()))
+              && (!req.query.category || nominee.category.includes(req.query.category.toUpperCase())));
+    });
 
-    var html = search.formatSearchResult(result);
+    let html = search.formatSearchResult(result);
 
     res.status(200).set('Content-Type', 'text/html').send(html);
   });
