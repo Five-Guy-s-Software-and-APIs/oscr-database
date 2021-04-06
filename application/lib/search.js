@@ -32,13 +32,22 @@ function formatSearchResult(result) {
 
   var html = '<!DOCTYPE html>\n' +
     '<html>\n' +
+    ' <meta content="text/html;charset=utf-8" http-equiv="Content-Type">\n' +
+    ' <meta content="utf-8" http-equiv="encoding">\n' +
+    '    <style>\n' +
+    '        body {\n' +
+    '            font-size: medium;\n' +
+    '            font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen, Ubuntu, Cantarell, \'Open Sans\', \'Helvetica Neue\', sans-serif;}\n' +
+    '    </style>\n' +
     '<body>\n' +
     '<h1>Search</h1>' +
     '  <form action="/search" method="GET">\n' +
     '    <label for="fyear">Year of film</label>\n' +
     '    <input type="text" name="year" id="fyear"><br>\n' +
-    '    <label for="name">Name of nominee/winner</label>\n' +
+    '    <label for="name">Name of nominee</label>\n' +
     '    <input type="text" name="name" id="name"><br>\n' +
+    '    <label for="film">Name of Film</label>\n' +
+    '    <input type="text" name="film" id="film"><br>\n' +
     '    <label for="category">Category</label>' +
     '    <input type="text" name="category" id="category"><br>\n' +
     '    <label for="winner">Show only winners</label>\n' +

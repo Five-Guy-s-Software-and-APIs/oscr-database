@@ -11,7 +11,9 @@ var appRouter = function (app) {
     let result = data.filter(nominee => {
       return ((!req.query.year || (parseInt(nominee.year_film) == parseInt(req.query.year)))
               && (!req.query.name || nominee.name.toUpperCase().includes(req.query.name.toUpperCase()))
-              && (!req.query.category || nominee.category.includes(req.query.category.toUpperCase())));
+              && (!req.query.category || nominee.category.includes(req.query.category.toUpperCase()))
+              && (!req.query.winner || nominee.winner)
+              && (!req.query.film || nominee.film.toUpperCase().includes(req.query.film.toUpperCase()) || nominee.name.toUpperCase().includes(req.query.film.toUpperCase())));
     });
 
     let html = search.formatSearchResult(result);
