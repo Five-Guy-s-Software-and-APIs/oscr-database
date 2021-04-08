@@ -65,7 +65,6 @@ function formatSearchResult(result) {
 
   return html;
 }
-
 module.exports = {
   formatSearchResult,
 };
