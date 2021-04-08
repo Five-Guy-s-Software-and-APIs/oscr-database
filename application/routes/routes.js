@@ -9,11 +9,7 @@ var appRouter = function (app) {
 
   app.get("/search", (req, res) => {
     let result = data.filter(nominee => {
-      return ((!req.query.year || (parseInt(nominee.year_film) == parseInt(req.query.year)))
-              && (!req.query.name || nominee.name.toUpperCase().includes(req.query.name.toUpperCase()))
-              && (!req.query.category || nominee.category.includes(req.query.category.toUpperCase()))
-              && (!req.query.winner || nominee.winner)
-              && (!req.query.film || nominee.film.toUpperCase().includes(req.query.film.toUpperCase()) || nominee.name.toUpperCase().includes(req.query.film.toUpperCase())));
+      return search.matchParameters(req.query, nominee);
     });
 
     let html = search.formatSearchResult(result);

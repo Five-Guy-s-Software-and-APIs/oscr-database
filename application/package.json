@@ -4,7 +4,9 @@
   "description": "Initial application",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "dev": "node app.js",
+    "debug": "nodemon --inspect app.js"
   },
   "repository": {
     "type": "git",
