@@ -1,5 +1,6 @@
 const path = require("path");
 const data = require(path.resolve('data.json'));
+const search = require('../lib/search');
 
 var appRouter = function (app) {
   app.get("/", (req, res) => {
@@ -7,27 +8,17 @@ var appRouter = function (app) {
   });
 
   app.get("/search", (req, res) => {
-    let result = [];
+    let result = data.filter(nominee => {
+      return ((!req.query.year || (parseInt(nominee.year_film) == parseInt(req.query.year)))
+              && (!req.query.name || nominee.name.toUpperCase().includes(req.query.name.toUpperCase()))
+              && (!req.query.category || nominee.category.includes(req.query.category.toUpperCase()))
+              && (!req.query.winner || nominee.winner)
+              && (!req.query.film || nominee.film.toUpperCase().includes(req.query.film.toUpperCase()) || nominee.name.toUpperCase().includes(req.query.film.toUpperCase())));
+    });
 
-    //If the user doens't enter any search paramiters return nothing
-    if((req.query.year_film == "" && req.query.name == "" && req.query.category == "" ))
-    {
-      res.status(200).json([]);
-      return;
-    }
+    let html = search.formatSearchResult(result);
 
-    for(const nominee of data) {
-
-        if((req.query.year_film == "" || parseInt(nominee.year_film) == parseInt(req.query.year_film)) &&
-           (req.query.name == "" || nominee.name == req.query.name) &&
-            (req.query.category == "" || nominee.category == req.query.category)){
-
-              result.push(nominee);
-            }
-    }
-
-    res.status(200).json(result); //Returns JSON string of all pushed awards
-
+    res.status(200).set('Content-Type', 'text/html').send(html);
   });
 
 
