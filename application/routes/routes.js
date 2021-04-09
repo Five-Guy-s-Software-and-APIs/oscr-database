@@ -1,6 +1,7 @@
 const path = require("path");
 const data = require(path.resolve('data.json'));
 const search = require('../lib/search');
+const match = require('../lib/matchByParameter');
 
 var appRouter = function (app) {
   app.get("/", (req, res) => {
@@ -9,7 +10,7 @@ var appRouter = function (app) {
 
   app.get("/search", (req, res) => {
     let result = data.filter(nominee => {
-      return search.matchParameters(req.query, nominee);
+      return match.matchByParameter(req.query, nominee);
     });
 
     let html = search.formatSearchResult(result);

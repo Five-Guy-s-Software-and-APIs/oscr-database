@@ -67,43 +67,8 @@ function formatSearchResult(result) {
 }
 
 
-/**
- * Returns true if query parameters match data
- * 
- * @param {Object} query from URL
- * 
- * @param {Object} data
- * 
- * @returns {boolean} if query and data match
- */
-function matchParameters(query, data) {
-  let returnValue = true;
-  for(let parameter in data) {
-    //Checks if parameter exists in query
-    if(!query.hasOwnProperty(parameter)) continue;
-    //Checks if parameter is empty/null/0/...
-    if(!query[parameter]) continue;
 
-    //Checks if parameter is a number, then compares
-    if(!isNaN(query[parameter])) {
-      returnValue = (data[parameter] === parseInt(query[parameter])) && returnValue;
-      continue;
-    }
-
-    //Checks if parameter in database is a boolean, and returns the value from that data
-    //Captures checkbox toggles in queries
-    if(typeof(data[parameter]) == "boolean") {
-      returnValue = data[parameter] && returnValue;
-      continue;
-    }
-
-    //This compares all of the strings
-    returnValue = (data[parameter].toUpperCase().includes(query[parameter].toUpperCase()) && returnValue);
-  }
-  return returnValue;
-}
 
 module.exports = {
   formatSearchResult,
-  matchParameters,
 };
