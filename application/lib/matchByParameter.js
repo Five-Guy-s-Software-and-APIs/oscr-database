@@ -1,9 +1,9 @@
 /**
- * Returns true if query parameters match data
+ * Returns true if query parameters match any of the data parameters
  * 
- * @param {Object} query from URL
+ * @param {object} query from client
  * 
- * @param {Object} data
+ * @param {object} data being compared
  * 
  * @returns {boolean} if query and data match
  */
