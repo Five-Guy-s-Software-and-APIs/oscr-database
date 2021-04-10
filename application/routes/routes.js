@@ -18,10 +18,9 @@ var appRouter = function (app) {
     res.status(200).set('Content-Type', 'text/html').send(html);
   });
 
-
-
-
-
+  app.get("/public/searchbar", (req, res) => {
+    res.status(200).sendFile(path.resolve('public/searchbar.html'));
+  });
 
 }
 

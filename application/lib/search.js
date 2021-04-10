@@ -32,28 +32,19 @@ function formatSearchResult(result) {
 
   let html = '<!DOCTYPE html>\n' +
     '<html>\n' +
-    ' <meta content="text/html;charset=utf-8" http-equiv="Content-Type">\n' +
-    ' <meta content="utf-8" http-equiv="encoding">\n' +
-    '    <style>\n' +
-    '        body {\n' +
-    '            font-size: medium;\n' +
-    '            font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen, Ubuntu, Cantarell, \'Open Sans\', \'Helvetica Neue\', sans-serif;}\n' +
-    '    </style>\n' +
+    '<head>\n' +
+    '  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">\n' +
+    '  <meta content="utf-8" http-equiv="encoding">\n' +
+    '  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.js"></script>\n' +
+    '  <script type="text/javascript">\n' +
+    '    $(document).ready(function() {\n' +
+    '    $("#searchbar").load("/public/searchbar");\n' +
+    '    });\n' +
+    '  </script>\n' +
+    '</head>\n' +
     '<body>\n' +
-    '<h1>Search</h1>' +
-    '  <form action="/search" method="GET">\n' +
-    '    <label for="fyear">Year of film</label>\n' +
-    '    <input type="text" name="year_film" id="fyear"><br>\n' +
-    '    <label for="name">Name of nominee</label>\n' +
-    '    <input type="text" name="name" id="name"><br>\n' +
-    '    <label for="film">Name of Film</label>\n' +
-    '    <input type="text" name="film" id="film"><br>\n' +
-    '    <label for="category">Category</label>' +
-    '    <input type="text" name="category" id="category"><br>\n' +
-    '    <label for="winner">Show only winners</label>\n' +
-    '    <input type="checkbox" name="winner" id="winner"><br>\n' +
-    '    <button>Search</button>\n' +
-    '  </form>\n' +
+    '  <h1>Oscr Search</h1>\n' +
+    '  <div id="searchbar"></div>\n' +
     '  <h1>Search Results</h1>\n' +
     `  <table>\n` +
     //`    <tr>${headers}</tr>` +
