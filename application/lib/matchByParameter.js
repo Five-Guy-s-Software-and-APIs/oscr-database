@@ -9,7 +9,7 @@
  */
  function matchByParameter(query, data) {
     let isInData = true;
-    for(let parameter in query) {
+    for(let parameter in data) {
       //If the parameter is empty, move on to the next parameter
       if(!query[parameter]) continue;
       
