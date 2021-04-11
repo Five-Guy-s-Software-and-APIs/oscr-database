@@ -9,13 +9,13 @@
  */
  function matchByParameter(query, data) {
     let isInData = true;
-    for(let parameter in data) {
-      //If the parameter does not exist in query, or is empty, move on to the next parameter
-      if(!query.hasOwnProperty(parameter) || !query[parameter]) continue;
+    for(let parameter in query) {
+      //If the parameter is empty, move on to the next parameter
+      if(!query[parameter]) continue;
       
       //If the parameter is a number, parse it as a number and compare it
       if(!isNaN(query[parameter])) {
-      isInData = (data[parameter] === parseInt(query[parameter])) && isInData;
+        isInData = (data[parameter] === parseInt(query[parameter])) && isInData;
         continue;
       }
   
