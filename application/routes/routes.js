@@ -19,40 +19,22 @@ var appRouter = function (app) {
     //res.status(200).set('Content-Type', 'text/html').send(html);
   });
 
-  app.get("/categories/:category*", (req, res, next) => {
-    let db = undefined;
-    if(res.hasOwnProperty("result")) {
-      db = res.result;
-    } else {
-      db = data;
-    }
-    res.result = db.filter(nominee => {
+  app.get(["/categories/:category", "/year/:year_film", "/nominee-name/:name", "/film/:film", 
+  "/categories/:category/year/:year_film/nominee-name/:name/film/:film",
+  "/categories/:category/year/:year_film/nominee-name/:name",
+  "/categories/:category/nominee-name/:name/film/:film",
+  "/categories/:category/year/:year_film/:name/film/:film",
+  "/year/:year_film/nominee-name/:name/film/:film",
+  "/categories/:category/nominee-name/:name",
+  "/categories/:category/year/:year_film",
+  "/categories/:category/film/:film",
+  "/nominee-name/:name/film/:film",
+  "/year/:year_film/film/:film",], (req, res) => {
+    let result = data.filter(nominee => {
       return match.matchByParameter(req.params, nominee);
     });
-    next();
-  })
-
-  app.get("/year/:year_film*", (req, res, next) => {
-    let db = undefined;
-    if(res.hasOwnProperty("result")) {
-      db = res.result;
-    } else {
-      db = data;
-    }
-    res.result = db.filter(nominee => {
-      return match.matchByParameter(req.params, nominee);
-    });
-    next();
-  })
-
-  app.get("/*", (req, res, next) => {
-    if(res.hasOwnProperty("result")) {
-      res.status(200).json(res.result);
-    } else {
-      next();
-    };
-
-  })
+    res.status(200).json(result);
+  });
 
   app.get("/public/searchbar", (req, res) => {
     res.status(200).sendFile(path.resolve('public/searchbar.html'));
