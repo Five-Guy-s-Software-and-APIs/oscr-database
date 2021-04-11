@@ -36,11 +36,7 @@ function formatSearchResult(result) {
     '  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">\n' +
     '  <meta content="utf-8" http-equiv="encoding">\n' +
     '  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.js"></script>\n' +
-    '  <script type="text/javascript">\n' +
-    '    $(document).ready(function() {\n' +
-    '    $("#searchbar").load("/public/searchbar");\n' +
-    '    });\n' +
-    '  </script>\n' +
+    '  <script type="text/javascript" src="/js/index"></script>\n' +
     '</head>\n' +
     '<body>\n' +
     '  <h1>Oscr Search</h1>\n' +
