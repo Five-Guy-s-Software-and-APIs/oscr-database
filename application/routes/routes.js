@@ -13,15 +13,20 @@ var appRouter = function (app) {
       return match.matchByParameter(req.query, nominee);
     });
 
-    let html = search.formatSearchResult(result);
+    res.status(200).json(result);
+    //let html = search.formatSearchResult(result);
 
-    res.status(200).set('Content-Type', 'text/html').send(html);
+    //res.status(200).set('Content-Type', 'text/html').send(html);
   });
 
   app.get("/public/searchbar", (req, res) => {
     res.status(200).sendFile(path.resolve('public/searchbar.html'));
   });
 
+  app.get("/public/js/index", (req, res) => {
+    res.status(200).sendFile(path.resolve('public/js/index.js'))
+  })
+  
 }
 
   module.exports = appRouter;
