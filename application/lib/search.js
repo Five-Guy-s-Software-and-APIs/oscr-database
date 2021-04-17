@@ -30,7 +30,7 @@ function formatSearchResult(result) {
     return row;
   }).join('');
 
-  let html = '<!DOCTYPE html>\n' +
+ return '<!DOCTYPE html>\n' +
     '<html>\n' +
     '<head>\n' +
     '  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">\n' +
@@ -49,8 +49,6 @@ function formatSearchResult(result) {
     '  </table>\n' +
     '</body>\n' +
     '</html>';
-
-  return html;
 }
 
 
