@@ -28,12 +28,13 @@
   }
 
 function match(query, data) {
+  try {
     //If the parameter is a number, parse it as a number and compare it
     if(!isNaN(query)) {
       return (data === parseInt(query));
     }
   
-    //If the parameter is a boolean value, combine it with current value
+    //If the parameter is a boolean value, return that value
     if(typeof(data) == "boolean") {
       return data;
     }
@@ -42,6 +43,9 @@ function match(query, data) {
     if(typeof(query) == "string") {
       return data.toUpperCase().includes(query.toUpperCase());
     }
+  } catch (err) {
+    return false;
+  }
 }
 
 module.exports = {
