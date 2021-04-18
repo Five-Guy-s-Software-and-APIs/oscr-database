@@ -13,23 +13,36 @@
       //If the parameter is empty, move on to the next parameter
       if(!query[parameter]) continue;
       
-      //If the parameter is a number, parse it as a number and compare it
-      if(!isNaN(query[parameter])) {
-        isInData = (data[parameter] === parseInt(query[parameter])) && isInData;
-        continue;
+      if(Array.isArray(query[parameter])) {
+        let arrMatch = false;
+        for(let item of query[parameter]) {
+          arrMatch = match(item, data[parameter]) || arrMatch;
+        }
+        isInData = arrMatch && isInData;
+        continue
       }
-  
-      //If the parameter is a boolean value, combine it with current value
-      if(typeof(data[parameter]) == "boolean") {
-        isInData = data[parameter] && isInData;
-        continue;
-      }
-  
-      //If parameter is a string, check if data contains the query string
-      isInData = (data[parameter].toUpperCase().includes(query[parameter].toUpperCase()) && isInData);
+
+      isInData = match(query[parameter], data[parameter]) && isInData;
     }
     return isInData;
   }
+
+function match(query, data) {
+    //If the parameter is a number, parse it as a number and compare it
+    if(!isNaN(query)) {
+      return (data === parseInt(query));
+    }
+  
+    //If the parameter is a boolean value, combine it with current value
+    if(typeof(data) == "boolean") {
+      return data;
+    }
+  
+    //If parameter is a string, check if data contains the query string
+    if(typeof(query) == "string") {
+      return data.toUpperCase().includes(query.toUpperCase());
+    }
+}
 
 module.exports = {
     matchByParameter,
