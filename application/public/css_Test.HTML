@@ -1,72 +1,70 @@
-<!--
-
-
 <!DOCTYPE html>
+<html>
 <head>
-    <title>Basic Layout with CSS Grid</title>
-    <meta name ="viewport" content="with=device-width, inital-scale=1.0">
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="/assets/favicon.ico">
-    <style>
-        body{
-            margin: 0;
-        }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
 
-        .container {
-            width: 100vw;
-            height: 100vw;
+.sidenav {
+  height: 100%;
+  width: 220px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(108, 115, 122);
+  overflow-x: hidden;
+  padding-top: 20px;
+}
 
-            font-family: 'Quicksand', sans-serif;
-            font-weight: bold;
-            font-size: 20px;
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #000000;
+  display: block;
+}
 
-            display: grid;
+.main {
+  margin-left: 220px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
 
-            
-            grid-template: 50px 1fr 1fr 100px / repeat(3, 1fr);
-
-            gap: 10px;
-
-            padding: 10px;
-            box-sizing: border-box;
-
-        }
-
-        .container div {
-                padding: 10px;
-                border: 1px solid #000000;
-
-        }
-
-        .header {
-            grid-column-start: 1;
-            grid-column-end: 4;
-        }
-
-        .content-large {
-            grid-row-start: 2;
-            grid-row-end: span 2;
-            grid-column-start: 1;
-            grid-column-end: 3;
-        }
-
-        .footer {
-            grid-column: 1 / span 3;
-        
-        }
-
-    </style>
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="header">Header</div>
-        <div class="content-large">Content #1</div>
-        <div class="content-small">Content #2</div>
-        <div class="content-small">Content #3</div>
-        <div class="footer">Footer</div>
+  
 
+<div class="sidenav">
+    <a for="fyear">Year of film</a>
+    <input type="text" name="year_film" id="fyear">
+    <a for="name">Name of nominee/winner</a>
+    <input type="text" name="name" id="name">
+    <a for="category">Category</a>
+    <input type="text" name="category" id="category">
+    <a for="winner">Show Only Winners</a>
+    <input type="checkbox" name="winner" id="winner">
+    <div>
+        <button id="sub_button">Search</button>
     </div>
-</body>
+</div>
 
--->
+<div class="main">
+  <h2>Sidebar</h2>
+  <p>This sidebar is of full height (100%) and always shown.</p>
+  <p>Scroll down the page to see the result.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
+</div>
+   
+</body>
+</html> 

@@ -46,8 +46,15 @@
         .content-large {
             grid-row-start: 2;
             grid-row-end: span 2;
+            grid-column-start: 2;
+            grid-column-end: span 2;
+        }
+        
+        .content-small {
+            grid-row-start: 2;
+            grid-row-end: span 2;
             grid-column-start: 1;
-            grid-column-end: 3;
+            grid-column-end: span 1;
         }
 
         .footer {
@@ -60,10 +67,10 @@
 
 <body>
     <div class="container">
-        <div class="header">Header</div>
-        <div class="content-large">Content #1</div>
-        <div class="content-small">Content #2</div>
-        <div class="content-small">Content #3</div>
+        <div class="header">Oscar Award Database</div>
+        <div class="content-large">Results...</div>
+        <div class="content-small">Search Options</div>
+        <!--<div class="content-small">Content #3</div> -->
         <div class="footer">Footer</div>
 
     </div>
