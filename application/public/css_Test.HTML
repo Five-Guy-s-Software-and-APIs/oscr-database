@@ -27,7 +27,7 @@ body {
   display: block;
 }
 
-.main {
+#demo {
   margin-left: 220px; /* Same as the width of the sidenav */
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
@@ -40,7 +40,33 @@ body {
 </style>
 </head>
 <body>
-  
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <script type = "text/javascript">
+    
+    function dispResults(db)
+    {
+
+    var table = "<tr><th>Category</th><th>Name</th><th>Film</th><th>Year</th><th>Winner</th></tr>";
+    for(var i=0; i<db.length; ++i)
+     {
+             table += "<tr>";
+             table += "<td> " + String(db[i]["category"]) + " </td>";
+             table += "<td> " + String(db[i]["name"]) + " </td>";
+             table += "<td> " + String(db[i]["film"]) + " </td>";
+             table += "<td> " + String(db[i]["year_ceremony"]) + " </td>";
+             table += "<td> " + String(db[i]["winner"]) + " </td>";
+             table += "</tr>";
+     }
+
+     document.getElementById('output_table').innerHTML  = table;
+
+    }  
+    </script>    
+
+
+
+    
 
 <div class="sidenav">
     <a for="fyear">Year of film</a>
@@ -56,15 +82,45 @@ body {
     </div>
 </div>
 
-<div class="main">
-  <h2>Sidebar</h2>
-  <p>This sidebar is of full height (100%) and always shown.</p>
-  <p>Scroll down the page to see the result.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-  <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-</div>
-   
-</body>
-</html> 
+<div id="demo">
+    <h2>Search Results</h2>
+      <!-- <label for="fname">Year:</label><br>
+      <input type="text" id="fyear" name="year"><br>
+      <button onclick="searchYear(document.getElementById('fyear').value)">Search</button>
+    </div>
+    <div>
+        <input type="submit" value="Send" accesskey="\n">
+    </div> -->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script>
+    $(document).ready(function(){
+      $("#sub_button").click(function(){
+        $.get("/search",
+          {
+          year_film : document.getElementById("fyear").value,
+          name : document.getElementById("name").value,
+          category : document.getElementById("category").value},
+    
+          function(data, status){
+          dispResults(data);
+        });
+      });
+    });
+    </script>
+        <div>
+     
+        <table style="word-break:break-all;"; id="output_table">
+    
+    
+       </table>
+    </div>
+    
+    <!-- <div>
+        <table style="word-break:break-all;"; id="output_table">
+       </table>
+    </div> -->
+    
+    </body>
+    </html>
