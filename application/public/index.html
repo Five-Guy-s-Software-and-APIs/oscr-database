@@ -3,6 +3,28 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+ table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+
+          padding: 8px; 
+          
+          
+          
+        }
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+input.largerCheckbox {
+            width: 40px;
+            height: 40px;
+        }
+
 body {
   font-family: "Lato", sans-serif;
 }
@@ -22,14 +44,14 @@ body {
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 27px;
   color: #000000;
   display: block;
 }
 
 #demo {
   margin-left: 220px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
+  font-size: 16px; /* Increased text to enable scrolling */
   padding: 0px 10px;
 }
 
@@ -50,6 +72,7 @@ body {
     var table = "<tr><th>Category</th><th>Name</th><th>Film</th><th>Year</th><th>Winner</th></tr>";
     for(var i=0; i<db.length; ++i)
      {
+         
              table += "<tr>";
              table += "<td> " + String(db[i]["category"]) + " </td>";
              table += "<td> " + String(db[i]["name"]) + " </td>";
@@ -76,10 +99,10 @@ body {
     <a for="category">Category</a>
     <input type="text" name="category" id="category">
     <a for="winner">Show Only Winners</a>
-    <input type="checkbox" name="winner" id="winner">
-    <div>
+    <input type="checkbox" class="largerCheckbox" name="winner" id="winner">
+    <a>
         <button id="sub_button">Search</button>
-    </div>
+    </a>
 </div>
 
 <div id="demo">
