@@ -5,7 +5,11 @@ var appRouter = function (app) {
   app.get("/", (req, res) => {
     res.status(200).sendFile(path.resolve('public/index.html'));
   });
-
+  
+  app.get("/mystyles", (req, res) => {
+    res.sendFile(path.resolve('public/mystyles.css'));
+  });
+  
   app.get("/search", (req, res) => {
     let result = [];
 
@@ -29,11 +33,6 @@ var appRouter = function (app) {
     res.status(200).json(result); //Returns JSON string of all pushed awards
 
   });
-
-
-
-
-
 
 }
 
