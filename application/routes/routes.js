@@ -1,5 +1,7 @@
 const path = require("path");
 const data = require(path.resolve('data.json'));
+const search = require('../lib/search');
+const match = require('../lib/matchByParameter');
 
 var appRouter = function (app) {
   app.get("/", (req, res) => {
@@ -11,29 +13,35 @@ var appRouter = function (app) {
   });
   
   app.get("/search", (req, res) => {
-    let result = [];
+    let result = data.filter(nominee => {
+      return match.matchByParameter(req.query, nominee);
+    });
 
-    //If the user doens't enter any search paramiters return nothing
-    if((req.query.year_film == "" && req.query.name == "" && req.query.category == "" ))
-    {
-      res.status(200).json([]);
-      return;
-    }
-
-    for(const nominee of data) {
-
-        if((req.query.year_film == "" || parseInt(nominee.year_film) == parseInt(req.query.year_film)) &&
-           (req.query.name == "" || nominee.name == req.query.name) &&
-            (req.query.category == "" || nominee.category == req.query.category)){
-
-              result.push(nominee);
-            }
-    }
-
-    res.status(200).json(result); //Returns JSON string of all pushed awards
-
+    res.status(200).json(result);
   });
 
+  app.get("/movies/categories/:category/year/:year_film", (req, res) => {
+    let result = data.filter(nominee => {
+      return match.matchByParameter(req.params, nominee);
+    });
+    res.status(200).json(result);
+  });
+
+  app.get("/movies/categories/:category/year/:year_film/winner", (req, res) => {
+    let result = data.filter(nominee => {
+      return match.matchByParameter(req.params, nominee) && nominee.winner;
+    });
+    res.status(200).json(result);
+  });
+
+  app.get("/public/searchbar", (req, res) => {
+    res.status(200).sendFile(path.resolve('public/searchbar.html'));
+  });
+
+  app.get("/public/js/index", (req, res) => {
+    res.status(200).sendFile(path.resolve('public/js/index.js'))
+  })
+  
 }
 
   module.exports = appRouter;
