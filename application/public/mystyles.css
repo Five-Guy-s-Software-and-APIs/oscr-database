@@ -3,6 +3,11 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
+td:nth-child(4),
+td:nth-child(5),
+th {
+  white-space: nowrap;
+}
 td,
 th {
   border: 1px solid #dddddd;
@@ -14,8 +19,8 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 input.largerCheckbox {
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
 }
 
 body {
@@ -32,13 +37,15 @@ body {
   background-color: rgb(108, 115, 122);
   overflow-x: hidden;
   padding-top: 20px;
+  padding-left: 10px;
 }
 
 .sidenav a {
-  padding: 6px 8px 6px 16px;
+  padding-top: 6px;
+  padding-bottom: 6px;
   text-decoration: none;
   font-size: 27px;
-  color: #000000;
+  color: #ffffff;
   display: block;
 }
 

@@ -38,13 +38,13 @@
 
 <div class="sidenav">
     <a for="fyear">Year of film</a>
-    <input type="text" name="year_film" id="fyear">
+    <input type="text" name="year_film" id="fyear" placeholder="Year">
     <a for="name">Name of nominee/winner</a>
-    <input type="text" name="name" id="name">
+    <input type="text" name="name" id="name" placeholder="Name">
     <a for="category">Category</a>
-    <input type="text" name="category" id="category">
+    <input type="text" name="category" id="category" placeholder="Category">
     <a for="winner">Show Only Winners</a>
-    <input type="checkbox" class="largerCheckbox" name="winner" id="winner">
+    <input type="checkbox" class="largerCheckbox" name="winner" id="winner" value="true">
     <a>
         <button id="sub_button">Search</button>
     </a>
@@ -52,13 +52,6 @@
 
 <div id="demo">
     <h2>Search Results</h2>
-      <!-- <label for="fname">Year:</label><br>
-      <input type="text" id="fyear" name="year"><br>
-      <button onclick="searchYear(document.getElementById('fyear').value)">Search</button>
-    </div>
-    <div>
-        <input type="submit" value="Send" accesskey="\n">
-    </div> -->
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
@@ -69,7 +62,9 @@
           {
           year_film : document.getElementById("fyear").value,
           name : document.getElementById("name").value,
-          category : document.getElementById("category").value},
+          category : document.getElementById("category").value,
+          winner : document.getElementById("winner").value,
+        },
     
           function(data, status){
           dispResults(data);
@@ -85,10 +80,6 @@
        </table>
     </div>
     
-    <!-- <div>
-        <table style="word-break:break-all;"; id="output_table">
-       </table>
-    </div> -->
     
     </body>
     </html>
