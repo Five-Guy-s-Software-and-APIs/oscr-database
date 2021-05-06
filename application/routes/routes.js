@@ -1,15 +1,14 @@
 const path = require("path");
 const data = require(path.resolve('data.json'));
-const search = require('../lib/search');
 const match = require('../lib/matchByParameter');
+const public = require("./public/public")
+
 
 var appRouter = function (app) {
+  app.use("/public", public);
+
   app.get("/", (req, res) => {
     res.status(200).sendFile(path.resolve('public/index.html'));
-  });
-  
-  app.get("/mystyles", (req, res) => {
-    res.sendFile(path.resolve('public/mystyles.css'));
   });
   
   app.get("/search", (req, res) => {
@@ -33,15 +32,6 @@ var appRouter = function (app) {
     });
     res.status(200).json(result);
   });
-
-  app.get("/public/searchbar", (req, res) => {
-    res.status(200).sendFile(path.resolve('public/searchbar.html'));
-  });
-
-  app.get("/public/js/index", (req, res) => {
-    res.status(200).sendFile(path.resolve('public/js/index.js'))
-  })
-  
 }
 
   module.exports = appRouter;
