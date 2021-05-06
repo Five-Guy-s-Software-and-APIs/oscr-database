@@ -1,16 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>Oscr Search</title>
-        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-        <meta content="utf-8" http-equiv="encoding">
+<html>
+<head>
 
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.js"></script>
-        <script type="text/javascript" src="/public/js/index"></script>
-    </head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/mystyles">
 
-    <body>
-        <h1>Oscr Search</h1>
-        <div id="searchbar"></div>
+</head>
+<body>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <script type = "text/javascript">
+    
+    function dispResults(db)
+    {
+
+    var table = "<tr><th>Category</th><th>Name</th><th>Film</th><th>Year</th><th>Winner</th></tr>";
+    for(var i=0; i<db.length; ++i)
+     {
+         
+             table += "<tr>";
+             table += "<td> " + String(db[i]["category"]) + " </td>";
+             table += "<td> " + String(db[i]["name"]) + " </td>";
+             table += "<td> " + String(db[i]["film"]) + " </td>";
+             table += "<td> " + String(db[i]["year_film"]) + " </td>";
+             table += "<td> " + String(db[i]["winner"]) + " </td>";
+             table += "</tr>";
+     }
+
+     document.getElementById('output_table').innerHTML  = table;
+
+    }  
+    </script>    
+
+
+
+    
+
+<div class="sidenav">
+    <a for="fyear">Year of film</a>
+    <input type="text" name="year_film" id="fyear" placeholder="Year">
+    <a for="name">Name of nominee/winner</a>
+    <input type="text" name="name" id="name" placeholder="Name">
+    <a for="category">Category</a>
+    <input type="text" name="category" id="category" placeholder="Category">
+    <a for="winner">Show Only Winners</a>
+    <input type="checkbox" class="largerCheckbox" name="winner" id="winner" value="true">
+    <a>
+        <button id="sub_button">Search</button>
+    </a>
+</div>
+
+<div id="demo">
+    <h2>Search Results</h2>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script>
+    $(document).ready(function(){
+      $("#sub_button").click(function(){
+        $.get("/search",
+          {
+          year_film : document.getElementById("fyear").value,
+          name : document.getElementById("name").value,
+          category : document.getElementById("category").value,
+          winner : document.getElementById("winner").checked,
+        },
+    
+          function(data, status){
+          dispResults(data);
+        });
+      });
+    });
+    </script>
+        <div>
+     
+        <table style="word-break:break-all;"; id="output_table">
+    
+    
+       </table>
+    </div>
+    
+    
     </body>
-</html>
+    </html>

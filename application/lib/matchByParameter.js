@@ -36,7 +36,7 @@ function match(query, data) {
   
     //If the parameter is a boolean value, return that value
     if(typeof(data) == "boolean") {
-      return data;
+      return (query==='true') ? data : true;
     }
   
     //If parameter is a string, check if data contains the query string

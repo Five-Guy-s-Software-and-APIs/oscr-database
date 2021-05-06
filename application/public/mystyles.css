@@ -1,0 +1,65 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+td:nth-child(4),
+td:nth-child(5),
+th {
+  white-space: nowrap;
+}
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+input.largerCheckbox {
+  width: 20px;
+  height: 20px;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 220px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(108, 115, 122);
+  overflow-x: hidden;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+.sidenav a {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  text-decoration: none;
+  font-size: 27px;
+  color: #ffffff;
+  display: block;
+}
+
+#demo {
+  margin-left: 220px; /* Same as the width of the sidenav */
+  font-size: 16px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}

@@ -7,7 +7,11 @@ var appRouter = function (app) {
   app.get("/", (req, res) => {
     res.status(200).sendFile(path.resolve('public/index.html'));
   });
-
+  
+  app.get("/mystyles", (req, res) => {
+    res.sendFile(path.resolve('public/mystyles.css'));
+  });
+  
   app.get("/search", (req, res) => {
     let result = data.filter(nominee => {
       return match.matchByParameter(req.query, nominee);
