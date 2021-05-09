@@ -1,0 +1,349 @@
+{
+	"info": {
+		"_postman_id": "0e817f97-10d8-4292-b9db-0b76534463ff",
+		"name": "Endpoint Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "search?year",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let year = parseInt(pm.variables.get(\"test_year\"));\r",
+									"pm.test(`GET /search?year=${year}`, function () {\r",
+									"    let jsonData = pm.response.json();\r",
+									"    for (object of jsonData) {\r",
+									"        pm.expect(object).to.include({\"year_film\":year});\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/search?year_film={{test_year}}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "year_film",
+									"value": "{{test_year}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search?name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let name = pm.variables.get(\"test_name\");\r",
+									"pm.test(`GET /search?name=${name}`, function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    for (obj of jsonData) {\r",
+									"        pm.expect(obj).to.include({\"name\":name});\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/search?name={{test_name}}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{test_name}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search?category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let category = pm.variables.get(\"test_category1\").toUpperCase();\r",
+									"pm.test(`GET /search?category=${category}`, function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    for (obj of jsonData) {\r",
+									"        pm.expect(obj).to.include({\"category\":category});\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/search?category={{test_category1}}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "{{test_category1}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search?categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let category1 = pm.variables.get(\"test_category1\").toUpperCase();\r",
+									"let category2 = pm.variables.get(\"test_category2\").toUpperCase();\r",
+									"pm.test(`GET /search?category=${category1}&category=${category2}`, function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    for (obj of jsonData) {\r",
+									"        try {\r",
+									"            pm.expect(obj).to.include({\"category\":category1});\r",
+									"        } catch {\r",
+									"            pm.expect(obj).to.include({\"category\":category2});\r",
+									"        }\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/search?category={{test_category1}}&category={{test_category2}}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "{{test_category1}}"
+								},
+								{
+									"key": "category",
+									"value": "{{test_category2}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search?film",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let film = pm.variables.get(\"test_film\");\r",
+									"pm.test(`GET /search?film=${film}`, function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    for (obj of jsonData) {\r",
+									"        pm.expect(obj).to.include({\"film\":film});\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/search?film={{test_film}}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "film",
+									"value": "{{test_film}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Collection Resource",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let category = pm.variables.get(\"test_category1\").toUpperCase();\r",
+							"let year = parseInt(pm.variables.get(\"test_year\"));\r",
+							"pm.test(`GET /categories/${category}/year/${year}`, function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    for (obj of jsonData) {\r",
+							"        pm.expect(obj).to.include({\"category\":category,\"year_film\":year});\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{base_url}}/movies/categories/{{test_category1}}/year/{{test_year}}",
+					"protocol": "http",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"movies",
+						"categories",
+						"{{test_category1}}",
+						"year",
+						"{{test_year}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Singleton Resource",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let category = pm.variables.get(\"test_category1\").toUpperCase();\r",
+							"let year = parseInt(pm.variables.get(\"test_year\"));\r",
+							"pm.test(`GET /categories/${category}/year/${year}/winner`, function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0]).to.include({\"category\":category,\"year_film\":year,\"winner\":true});\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{base_url}}/movies/categories/{{test_category1}}/year/{{test_year}}/winner",
+					"protocol": "http",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"movies",
+						"categories",
+						"{{test_category1}}",
+						"year",
+						"{{test_year}}",
+						"winner"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "test_year",
+			"value": "1984"
+		},
+		{
+			"key": "test_name",
+			"value": "Katharine Hepburn"
+		},
+		{
+			"key": "test_category1",
+			"value": "Best Picture"
+		},
+		{
+			"key": "test_category2",
+			"value": "Actor in a Leading Role"
+		},
+		{
+			"key": "test_film",
+			"value": "Titanic"
+		}
+	]
+}
