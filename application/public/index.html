@@ -11,19 +11,22 @@
     <meta content="utf-8" http-equiv="encoding">
 </head>
 <body>
-  <div class="sidenav">
+  <form action="/search" method="GET" class="sidenav" id="search">
     <a for="fyear">Year of film</a>
     <input type="text" name="year_film" id="fyear" placeholder="Year">
     <a for="name">Name of nominee/winner</a>
     <input type="text" name="name" id="name" placeholder="Name">
     <a for="category">Category</a>
     <input type="text" name="category" id="category" placeholder="Category">
+    <a href="#" id="filldetails" onclick="addFields()">Additional Category</a>
+    <div id="container"></div>
+    <a href="#" id="cleardetails" onclick="clearFields()">Reset</a>
     <a for="winner">Show Only Winners</a>
     <input type="checkbox" class="largerCheckbox" name="winner" id="winner" value="true">
     <a>
         <button id="sub_button">Search</button>
     </a>
-  </div>
+  </form>
 
   <div id="demo">
     <h2>Search Results</h2>
