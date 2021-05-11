@@ -1,12 +1,26 @@
 {
-  "requires": true,
-  "lockfileVersion": 1,
+  "name": "application",
+  "version": "1.0.0",
+  "description": "Initial application",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "dev": "node app.js",
+    "debug": "nodemon --inspect app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/malachidohmen/Five-Guys-Software-and-APIs.git"
+  },
+  "author": "Emmanuel Castrejon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/malachidohmen/Five-Guys-Software-and-APIs/issues"
+  },
+  "homepage": "https://github.com/malachidohmen/Five-Guys-Software-and-APIs#readme",
   "dependencies": {
-    "prettier": {
-      "version": "2.2.1",
-      "resolved": "https://registry.npmjs.org/prettier/-/prettier-2.2.1.tgz",
-      "integrity": "sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==",
-      "dev": true
-    }
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
   }
 }
