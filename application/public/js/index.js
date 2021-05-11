@@ -1,10 +1,9 @@
 $(document).ready(function() {
   $('#search').submit(function(e) {
     e.preventDefault
-    let url = $(this).attr('action');
     $.ajax({
       type: 'GET',
-      url: url,
+      url: $(this).attr('action'),
       data: $(this).serialize(),
       success: function(response) {
         dispResults(response);
