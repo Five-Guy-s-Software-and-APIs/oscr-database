@@ -26,6 +26,20 @@ var appRouter = function (app) {
     res.status(200).json(result);
   });
 
+  app.get("/movies/categories/:category", (req, res) => {
+    let result = data.filter(nominee => {
+      return match.matchByParameter(req.params, nominee);
+    });
+    res.status(200).json(result);
+  });
+
+  app.get("/movies/year/:year_film", (req, res) => {
+    let result = data.filter(nominee => {
+      return match.matchByParameter(req.params, nominee);
+    });
+    res.status(200).json(result);
+  });
+
   app.get("/movies/categories/:category/year/:year_film/winner", (req, res) => {
     let result = data.filter(nominee => {
       return match.matchByParameter(req.params, nominee) && nominee.winner;
