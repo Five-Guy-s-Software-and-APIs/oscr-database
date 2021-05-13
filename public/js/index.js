@@ -1,12 +1,15 @@
 $(document).ready(function() {
-  $('#search').submit(function(e) {
-    e.preventDefault
+  $('#search').submit(function(event) {
+    event.preventDefault;
     $.ajax({
       type: 'GET',
       url: $(this).attr('action'),
       data: $(this).serialize(),
       success: function(response) {
         dispResults(response);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        document.getElementById('output_table').appendChild(document.createTextNode("Nothing found matching search query"));
       }
     });
     return false;
@@ -24,7 +27,7 @@ function dispResults(db) {
         table += "<td> " + String(db[i]["winner"]) + " </td>";
         table += "</tr>";
     }
-    document.getElementById('output_table').innerHTML  = table;
+    document.getElementById('output_table').innerHTML = table;
 }
 
 function addFields(){
@@ -37,6 +40,7 @@ function addFields(){
     var input = document.createElement("input");
     input.type = "text";
     input.name = "category";
+    input.placeholder = "Category";
     container.appendChild(input);
     // Append a line break 
     container.appendChild(document.createElement("br"));

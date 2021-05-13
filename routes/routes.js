@@ -16,35 +16,28 @@ var appRouter = function (app) {
       return match.matchByParameter(req.query, nominee);
     });
 
-    res.status(200).json(result);
+    if (result.length === 0) res.status(404).send();
+    else res.status(200).json(result);
   });
 
-  app.get("/movies/categories/:category/year/:year_film", (req, res) => {
+  app.get(["/movies/categories/:category/year/:year_film",
+           "/movies/categories/:category",
+           "/movies/year/:year_film"], (req, res) => {
     let result = data.filter(nominee => {
       return match.matchByParameter(req.params, nominee);
     });
-    res.status(200).json(result);
-  });
-
-  app.get("/movies/categories/:category", (req, res) => {
-    let result = data.filter(nominee => {
-      return match.matchByParameter(req.params, nominee);
-    });
-    res.status(200).json(result);
-  });
-
-  app.get("/movies/year/:year_film", (req, res) => {
-    let result = data.filter(nominee => {
-      return match.matchByParameter(req.params, nominee);
-    });
-    res.status(200).json(result);
+    
+    if (result.length === 0) res.status(404).send();
+    else res.status(200).json(result);
   });
 
   app.get("/movies/categories/:category/year/:year_film/winner", (req, res) => {
     let result = data.filter(nominee => {
       return match.matchByParameter(req.params, nominee) && nominee.winner;
     });
-    res.status(200).json(result);
+    
+    if (result.length === 0) res.status(404).send();
+    else res.status(200).json(result);
   });
 }
 
