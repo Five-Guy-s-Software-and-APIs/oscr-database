@@ -14,13 +14,15 @@
   <form action="/search" method="GET" class="sidenav" id="search">
     <label for="fyear">Year of film</label>
     <input type="text" name="year_film" id="fyear" placeholder="Year">
-    <label for="name">Name of nominee/winner</label>
+    <label for="name">Name of nominee</label>
     <input type="text" name="name" id="name" placeholder="Name">
+    <label for="film">Name of Film</label>
+    <input type="text" name="film" id="film" placeholder="Film">
     <label for="category">Category</label>
     <input type="text" name="category" id="category" placeholder="Category"><br>
     <button type="button" href="#" id="filldetails" onclick="addFields()">Additional Category</button>
     <div id="container"></div>
-    <button type="reset" href="#" id="cleardetails" onclick="clearFields()">Reset</button>
+    <button type="reset" href="#" id="cleardetails" onclick="clearFields()">Reset</button><br>
     <label for="winner">Show Only Winners</label>
     <input type="checkbox" class="largerCheckbox" name="winner" id="winner" value="true">
     <div>
