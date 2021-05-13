@@ -1,5 +1,4 @@
 table {
-  font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
@@ -10,21 +9,35 @@ th {
 }
 td,
 th {
-  border: 1px solid #dddddd;
+  border-left: 1px solid #fff;
   text-align: left;
-
   padding: 8px;
 }
+
+td:first-child,
+th:first-child {
+  border-left: none;
+}
+
+th {
+  background-color: #F2BE12;
+}
+
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #292929;
 }
 input.largerCheckbox {
   width: 20px;
   height: 20px;
+  position: relative;
+  top: 3px;
+  left: 5px;
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #1A1A1A;
+  color: #FFFFFF;
 }
 
 .sidenav {
@@ -34,19 +47,57 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgb(108, 115, 122);
+  background-color: #292929;
   overflow-x: hidden;
   padding-top: 20px;
   padding-left: 10px;
 }
 
 .sidenav label {
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 8px;
+  padding-bottom: 9px;
   text-decoration: none;
-  font-size: 27px;
-  color: #ffffff;
-  display: block;
+  font-size: 20px;
+  color: #D6D6D6;
+  display: inline-block;
+}
+
+.sidenav input {
+  margin: 2px;
+  padding: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  border: none;
+  background-color: #f1f1f1;
+}
+
+.sidenav input[type=text] {
+  width: 86%;
+}
+
+.sidenav input[type=text]:focus {
+  background-color: #F9E8AF;
+  outline: none;
+}
+
+.sidenav button {
+  width: 93%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: 3px;
+  border-radius: 4px;
+  border: none;
+  padding: 6px;
+  background-color: #F2D05E;
+}
+
+#sub_button {
+  background-color: #F2BE12;
+}
+
+#sub_button:active {
+  background-color: #1246f2;
 }
 
 #demo {
@@ -59,7 +110,7 @@ body {
   .sidenav {
     padding-top: 15px;
   }
-  .sidenav a {
+  .sidenav label {
     font-size: 18px;
   }
 }

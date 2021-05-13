@@ -8,7 +8,7 @@ var appRouter = function (app) {
   app.use("/public", public);
 
   app.get("/api", (req, res) => {
-    res.status(200).sendFile(path.resolve('readme.html'))
+    res.status(200).sendFile(path.resolve('README.html'))
   })
 
   app.get("/", (req, res) => {
