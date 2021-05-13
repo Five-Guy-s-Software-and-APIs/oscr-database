@@ -9,9 +9,13 @@ th {
 }
 td,
 th {
-  border-left: 1px solid #fff;
+  border-left: 1px solid #bbbbbb;
   text-align: left;
   padding: 8px;
+}
+
+th {
+  border: none;
 }
 
 td:first-child,
