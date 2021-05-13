@@ -30,12 +30,16 @@ function dispResults(db) {
     document.getElementById('output_table').innerHTML = table;
 }
 
+let extraInput = 1;
+
 function addFields(){
   var container = document.getElementById("container");
     // Append a node with a random text
-    var a = document.createElement("a");
-
-    container.appendChild(a.appendChild(document.createTextNode("Category")));
+    extraInput++;
+    var label = document.createElement("label");
+    label.setAttribute("for", "category");
+    label.innerHTML = `Category ${extraInput}`;
+    container.appendChild(label);
     // Create an <input> element, set its type and name attributes
     var input = document.createElement("input");
     input.type = "text";
@@ -51,4 +55,5 @@ function clearFields() {
   while (container.hasChildNodes()) {
     container.removeChild(container.lastChild);
   }
+  extraInput = 1;
 }

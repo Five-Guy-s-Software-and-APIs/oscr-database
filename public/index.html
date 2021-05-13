@@ -12,20 +12,20 @@
 </head>
 <body>
   <form action="/search" method="GET" class="sidenav" id="search">
-    <a for="fyear">Year of film</a>
+    <label for="fyear">Year of film</label>
     <input type="text" name="year_film" id="fyear" placeholder="Year">
-    <a for="name">Name of nominee/winner</a>
+    <label for="name">Name of nominee/winner</label>
     <input type="text" name="name" id="name" placeholder="Name">
-    <a for="category">Category</a>
+    <label for="category">Category</label>
     <input type="text" name="category" id="category" placeholder="Category"><br>
     <button type="button" href="#" id="filldetails" onclick="addFields()">Additional Category</button>
     <div id="container"></div>
     <button type="reset" href="#" id="cleardetails" onclick="clearFields()">Reset</button>
-    <a for="winner">Show Only Winners</a>
+    <label for="winner">Show Only Winners</label>
     <input type="checkbox" class="largerCheckbox" name="winner" id="winner" value="true">
-    <a>
+    <div>
         <button id="sub_button">Search</button>
-    </a>
+    </div>
   </form>
 
   <div id="demo">
