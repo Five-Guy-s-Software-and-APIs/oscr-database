@@ -23,12 +23,15 @@ Will return all of the nominees in a given year
 
 Examples:
 >GET /movies/categories/best%20picture/year/1984
+
 Will return all of the nominees for best picture for films released in 1984
 
 >GET /movies/categores/best%20picture
+
 Will return every film nominated for best picture in the history of the Oscars
 
 >GET /movies/year/1984
+
 Will return every nomination for films released in 1994
 
 Singleton Resource
@@ -41,6 +44,7 @@ Will return the winner of a given category in a given year
 
 Example:
 >GET /movies/categories/best%20picture/year/1984/winner
+
 Will return the winner for Best Picture for films released in 1984, which is *Amadeus*
 
 Query Search
@@ -86,4 +90,5 @@ The search accepts the following optional parameters
 The search supports any number of additional parameters:
 So the query
 >GET >/search?category=actor%20in%20leading%20role&category=directing&year_film=1984
+
 will return all of the nominees for Actor in a Leading Role OR Directing for films released in 1984
