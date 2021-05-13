@@ -7,6 +7,10 @@ const public = require("./public/public")
 var appRouter = function (app) {
   app.use("/public", public);
 
+  app.get("/api", (req, res) => {
+    res.status(200).sendFile(path.resolve('readme.html'))
+  })
+
   app.get("/", (req, res) => {
     res.status(200).sendFile(path.resolve('public/index.html'));
   });
@@ -35,7 +39,7 @@ var appRouter = function (app) {
     let result = data.filter(nominee => {
       return match.matchByParameter(req.params, nominee) && nominee.winner;
     });
-    
+
     if (result.length === 0) res.status(404).send();
     else res.status(200).json(result);
   });

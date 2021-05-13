@@ -1,0 +1,105 @@
+<!doctype  html>
+
+<html>
+    <head>
+    </head>
+
+    <body>
+        <h1 id="five-guys-software-and-apis">Five-Guys-Software-and-APIs</h1>
+        <p>CSC 131 Semester Project
+        We use a back end of Node.js and HTML on the front end, while implementing a client-server architecture. We used AJAX to dynamically update our HTML page with information that was obtained through our RESTful API</p>
+        <p>All of the following endpoints are accessible via <a href="https://oscr-search.herokuapp.com/">https://oscr-search.herokuapp.com/</a></p>
+        <h2 id="collection-resource">Collection Resource</h2>
+        <p>There are three collection endpoints available:</p>
+        <blockquote>
+            <p>GET /movies/categories/:category/year/:year_film</p>
+        </blockquote>
+        <p>Will return all of the nominees for a given category in a given year</p>
+<blockquote>
+    <p>GET /movies/categories/:category</p>
+</blockquote>
+<p>Will return all nominees of a given category in the history of the Oscars</p>
+<blockquote>
+    <p>GET /movies/year/:year_film</p>
+</blockquote>
+<p>Will return all of the nominees in a given year</p>
+<p>Examples:</p>
+<blockquote>
+    <p>GET /movies/categories/best%20picture/year/1984</p>
+</blockquote>
+<p>Will return all of the nominees for best picture for films released in 1984</p>
+<blockquote>
+    <p>GET /movies/categores/best%20picture</p>
+</blockquote>
+<p>Will return every film nominated for best picture in the history of the Oscars</p>
+<blockquote>
+    <p>GET /movies/year/1984</p>
+</blockquote>
+<p>Will return every nomination for films released in 1994</p>
+<h2 id="singleton-resource">Singleton Resource</h2>
+<p>There is one singleton resource endpoint available:</p>
+<blockquote>
+    <p>GET /movies/categories/:category/year/:year_film/winner</p>
+</blockquote>
+<p>Will return the winner of a given category in a given year</p>
+<p>Example:</p>
+<blockquote>
+    <p>GET /movies/categories/best%20picture/year/1984/winner</p>
+</blockquote>
+<p>Will return the winner for Best Picture for films released in 1984, which is <em>Amadeus</em></p>
+<h2 id="query-search">Query Search</h2>
+<p>A search query can be made at the following endpoint</p>
+<blockquote>
+    <p>GET /search</p>
+</blockquote>
+<p>The search accepts the following optional parameters</p>
+<table>
+    <tr>
+        <th>Parameter Name</th>
+        <th>Parameter Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>category</td>
+        <td>String</td>
+        <td>Category of nomination</td>
+    </tr>
+    <tr>
+        <td>year_film</td>
+        <td>4 digit number</td>
+        <td>The year the film was released</td>
+    </tr>
+    <tr>
+        <td>name</td>
+        <td>String</td>
+        <td>Name of the nominee</td>
+    </tr>
+    <tr>
+        <td>film</td>
+        <td>String</td>
+        <td>Name of film being awarded</td>
+    </tr>
+    <tr>
+        <td>winner</td>
+        <td>Boolean (true | false)</td>
+        <td>Whether to include only winners</td>
+    </tr>
+</table>
+
+<p>The search supports any number of additional parameters:
+    So the query</p>
+<blockquote>
+    <p>GET &gt;/search?category=actor%20in%20leading%20role&amp;category=directing&amp;year_film=1984</p>
+</blockquote>
+<p>will return all of the nominees for Actor in a Leading Role OR Directing for films released in 1984</p>
+
+</body>
+
+
+
+
+
+
+
+
+</html>
