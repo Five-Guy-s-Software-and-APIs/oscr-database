@@ -26,11 +26,13 @@
 .header a.logo {
   font-size: 25px;
   font-weight: bold;
+  position: relative;
+  left: 10px;
 }
 
 /* Change the background color on mouse-over */
 .header a:hover {
-  background-color: #ddd;
+  background-color: #f2d05e;
   color: black;
 }
 
@@ -52,7 +54,7 @@ table {
   border-collapse: collapse;
   width: 100%;
   position: relative;
-  top: 100px;
+  top: 80px;
 }
 td:nth-child(4),
 td:nth-child(5),
@@ -88,6 +90,7 @@ input.largerCheckbox {
   position: relative;
   top: 3px;
   left: 5px;
+  cursor: pointer;
 }
 
 body {
@@ -147,6 +150,7 @@ body {
   border: none;
   padding: 6px;
   background-color: #f2d05e;
+  cursor: pointer;
 }
 
 #sub_button {
