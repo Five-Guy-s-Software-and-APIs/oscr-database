@@ -221,87 +221,278 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Empty Response",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/search?category={{fail_category}}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"search"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "{{fail_category}}"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
 		{
-			"name": "Collection Resource",
-			"event": [
+			"name": "Collection Endpoints",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"let category = pm.variables.get(\"test_category1\").toUpperCase();\r",
-							"let year = parseInt(pm.variables.get(\"test_year\"));\r",
-							"pm.test(`GET /categories/${category}/year/${year}`, function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    for (obj of jsonData) {\r",
-							"        pm.expect(obj).to.include({\"category\":category,\"year_film\":year});\r",
-							"    }\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://{{base_url}}/movies/categories/{{test_category1}}/year/{{test_year}}",
-					"protocol": "http",
-					"host": [
-						"{{base_url}}"
+					"name": "Category and Year",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let category = pm.variables.get(\"test_category1\").toUpperCase();\r",
+									"let year = parseInt(pm.variables.get(\"test_year\"));\r",
+									"pm.test(`GET /categories/${category}/year/${year}`, function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    for (obj of jsonData) {\r",
+									"        pm.expect(obj).to.include({\"category\":category,\"year_film\":year});\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"path": [
-						"movies",
-						"categories",
-						"{{test_category1}}",
-						"year",
-						"{{test_year}}"
-					]
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/movies/categories/{{test_category1}}/year/{{test_year}}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movies",
+								"categories",
+								"{{test_category1}}",
+								"year",
+								"{{test_year}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let category = pm.variables.get(\"test_category1\").toUpperCase();\r",
+									"pm.test(`GET /categories/${category}`, function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    for (obj of jsonData) {\r",
+									"        pm.expect(obj).to.include({\"category\":category});\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/movies/categories/{{test_category1}}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movies",
+								"categories",
+								"{{test_category1}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Year",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let year = parseInt(pm.variables.get(\"test_year\"));\r",
+									"pm.test(`GET /year/${year}`, function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    for (obj of jsonData) {\r",
+									"        pm.expect(obj).to.include({\"year_film\":year});\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/movies/year/{{test_year}}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movies",
+								"year",
+								"{{test_year}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Empty Response",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/movies/categories/{{fail_category}}/year/{{fail_year}}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movies",
+								"categories",
+								"{{fail_category}}",
+								"year",
+								"{{fail_year}}"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Singleton Resource",
-			"event": [
+			"name": "Singleton Endpoints",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"let category = pm.variables.get(\"test_category1\").toUpperCase();\r",
-							"let year = parseInt(pm.variables.get(\"test_year\"));\r",
-							"pm.test(`GET /categories/${category}/year/${year}/winner`, function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData[0]).to.include({\"category\":category,\"year_film\":year,\"winner\":true});\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://{{base_url}}/movies/categories/{{test_category1}}/year/{{test_year}}/winner",
-					"protocol": "http",
-					"host": [
-						"{{base_url}}"
+					"name": "Category and Year Winner",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let category = pm.variables.get(\"test_category1\").toUpperCase();\r",
+									"let year = parseInt(pm.variables.get(\"test_year\"));\r",
+									"pm.test(`GET /categories/${category}/year/${year}/winner`, function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData[0]).to.include({\"category\":category,\"year_film\":year,\"winner\":true});\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"path": [
-						"movies",
-						"categories",
-						"{{test_category1}}",
-						"year",
-						"{{test_year}}",
-						"winner"
-					]
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/movies/categories/{{test_category1}}/year/{{test_year}}/winner",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movies",
+								"categories",
+								"{{test_category1}}",
+								"year",
+								"{{test_year}}",
+								"winner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Empty Response",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{base_url}}/movies/categories/{{fail_category}}/year/{{fail_year}}",
+							"protocol": "http",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"movies",
+								"categories",
+								"{{fail_category}}",
+								"year",
+								"{{fail_year}}"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	],
 	"event": [
@@ -326,6 +517,10 @@
 	],
 	"variable": [
 		{
+			"key": "base_url",
+			"value": "oscr-search.herokuapp.com"
+		},
+		{
 			"key": "test_year",
 			"value": "1984"
 		},
@@ -344,6 +539,14 @@
 		{
 			"key": "test_film",
 			"value": "Titanic"
+		},
+		{
+			"key": "fail_year",
+			"value": "2022"
+		},
+		{
+			"key": "fail_category",
+			"value": "Best Gamer"
 		}
 	]
 }
