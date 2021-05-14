@@ -17,7 +17,7 @@ $(document).ready(function() {
 })
 
 function dispResults(db) {
-    var table = "<tr><th>Category</th><th>Name</th><th>Film</th><th>Year</th><th>Winner</th></tr>";
+    var table = "<tr><th scope=\"category\">Category</th><th scope=\"name\">Name</th><th scope=\"film\">Film</th><th scope=\"year\">Year</th><th scope=\"winner\">Winner</th></tr>";
     for(var i=0; i<db.length; ++i) {
         table += "<tr>";
         table += "<td> " + String(db[i]["category"]) + " </td>";
