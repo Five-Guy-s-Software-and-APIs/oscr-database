@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $('#search').submit(function(event) {
-    event.preventDefault;
+    event.preventDefault();
     $.ajax({
       type: 'GET',
       url: $(this).attr('action'),
@@ -12,19 +12,18 @@ $(document).ready(function() {
         document.getElementById('output_table').appendChild(document.createTextNode("Nothing found matching search query"));
       }
     });
-    return false;
   });
 })
 
 function dispResults(db) {
     var table = "<tr><th scope=\"category\">Category</th><th scope=\"name\">Name</th><th scope=\"film\">Film</th><th scope=\"year\">Year</th><th scope=\"winner\">Winner</th></tr>";
-    for(var i=0; i<db.length; ++i) {
+    for(item of db) {
         table += "<tr>";
-        table += "<td> " + String(db[i]["category"]) + " </td>";
-        table += "<td> " + String(db[i]["name"]) + " </td>";
-        table += "<td> " + String(db[i]["film"]) + " </td>";
-        table += "<td> " + String(db[i]["year_film"]) + " </td>";
-        table += "<td> " + String(db[i]["winner"]) + " </td>";
+        table += "<td> " + String(item["category"]) + " </td>";
+        table += "<td> " + String(item["name"]) + " </td>";
+        table += "<td> " + String(item["film"]) + " </td>";
+        table += "<td> " + String(item["year_film"]) + " </td>";
+        table += "<td> " + String(item["winner"]) + " </td>";
         table += "</tr>";
     }
     document.getElementById('output_table').innerHTML = table;

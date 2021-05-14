@@ -18,15 +18,12 @@ th {
 
 th {
   border: none;
+  background-color: #f2be12;
 }
 
 td:first-child,
 th:first-child {
   border-left: none;
-}
-
-th {
-  background-color: #f2be12;
 }
 
 tr:nth-child(even) {

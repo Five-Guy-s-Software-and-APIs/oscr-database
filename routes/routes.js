@@ -1,12 +1,12 @@
 const path = require("path");
 const data = require(path.resolve('data.json'));
 const match = require('../lib/matchByParameter');
-const public = require("./public/public")
+const pub = require("./public/public")
 const favicon = require('serve-favicon')
 
 
 var appRouter = function (app) {
-  app.use("/public", public);
+  app.use("/public", pub);
 
   app.use(favicon(path.join(__dirname, '../public', 'favicon.ico')))
 
