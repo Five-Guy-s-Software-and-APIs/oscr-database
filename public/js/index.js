@@ -16,8 +16,8 @@ $(document).ready(function() {
 })
 
 function dispResults(db) {
-    var table = "<tr><th scope=\"category\">Category</th><th scope=\"name\">Name</th><th scope=\"film\">Film</th><th scope=\"year\">Year</th><th scope=\"winner\">Winner</th></tr>";
-    for(item of db) {
+    let table = "<tr><th scope=\"category\">Category</th><th scope=\"name\">Name</th><th scope=\"film\">Film</th><th scope=\"year\">Year</th><th scope=\"winner\">Winner</th></tr>";
+    for(let item of db) {
         table += "<tr>";
         table += "<td> " + String(item["category"]) + " </td>";
         table += "<td> " + String(item["name"]) + " </td>";
