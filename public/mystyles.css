@@ -1,6 +1,58 @@
+/* Style the header with a grey background and some padding */
+.header {
+  overflow: hidden;
+  background-color: #333333;
+  padding: 20px 10px;
+  z-index: 2;
+  position: fixed;
+  top: -10px;
+  left: -10px;
+  width: 100%;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the active/current link*/
+.header a.active {
+  background-color: #f2be12;
+  color: black;
+  position: relative;
+  right: 40px;
+  width: 100%;
+}
+
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
+  position: relative;
+  top: 100px;
 }
 td:nth-child(4),
 td:nth-child(5),
@@ -24,7 +76,7 @@ th:first-child {
 }
 
 th {
-  background-color: #F2BE12;
+  background-color: #f2be12;
 }
 
 tr:nth-child(even) {
@@ -39,17 +91,18 @@ input.largerCheckbox {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background-color: #1A1A1A;
-  color: #FFFFFF;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #1a1a1a;
+  color: #ffffff;
 }
 
 .sidenav {
-  height: 100%;
+  height: 90%;
   width: 220px;
   position: fixed;
-  z-index: 1;
-  top: 0;
+  z-index: 0;
+  bottom: 0;
   left: 0;
   background-color: #292929;
   overflow-x: hidden;
@@ -62,7 +115,7 @@ body {
   padding-bottom: 9px;
   text-decoration: none;
   font-size: 20px;
-  color: #D6D6D6;
+  color: #d6d6d6;
   display: inline-block;
 }
 
@@ -76,12 +129,12 @@ body {
   background-color: #f1f1f1;
 }
 
-.sidenav input[type=text] {
+.sidenav input[type="text"] {
   width: 86%;
 }
 
-.sidenav input[type=text]:focus {
-  background-color: #F9E8AF;
+.sidenav input[type="text"]:focus {
+  background-color: #f9e8af;
   outline: none;
 }
 
@@ -93,11 +146,11 @@ body {
   border-radius: 4px;
   border: none;
   padding: 6px;
-  background-color: #F2D05E;
+  background-color: #f2d05e;
 }
 
 #sub_button {
-  background-color: #F2BE12;
+  background-color: #f2be12;
 }
 
 #sub_button:active {

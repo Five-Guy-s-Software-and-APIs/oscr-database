@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Oscr Search</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/public/mystyles">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/public/js/index"></script>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="utf-8" http-equiv="encoding">
+<head>
+  <title>Oscr Search</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/public/mystyles">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/public/js/index"></script>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
 </head>
+
 <body>
+  <div class="header">
+    <a href="/" class="logo">Oscr Search</a>
+    <div class="header-right">
+      <a class="active" href="/api">API</a>
+    </div>
+  </div>
   <form action="/search" method="GET" class="sidenav" id="search">
     <label for="fyear">Year of film</label>
     <input type="text" name="year_film" id="fyear" placeholder="Year">
@@ -26,14 +34,14 @@
     <label for="winner">Show Only Winners</label>
     <input type="checkbox" class="largerCheckbox" name="winner" id="winner" value="true">
     <div>
-        <button id="sub_button">Search</button>
+      <button id="sub_button">Search</button>
     </div>
   </form>
 
   <div id="demo">
-    <h1>Oscr Search</h1>
-      <div>
-        <table style="word-break:break-all;"; id="output_table"></table>
-      </div>
-  </body>
+    <div>
+      <table style="word-break:break-all;" ; id="output_table"></table>
+    </div>
+</body>
+
 </html>
