@@ -8,8 +8,6 @@ body {
 table {
   border-collapse: collapse;
   width: 100%;
-  position: relative;
-  top: 80px;
 }
 td:nth-child(4),
 td:nth-child(5),
@@ -26,6 +24,7 @@ th {
 th {
   border: none;
   background-color: #f2be12;
+  color: black;
 }
 
 td:first-child,
@@ -46,7 +45,7 @@ input.largerCheckbox {
 }
 
 .sidenav {
-  height: 88%;
+  height: 90%;
   width: 220px;
   position: fixed;
   z-index: 0;
@@ -118,6 +117,8 @@ input.largerCheckbox {
   margin-left: 220px; /* Same as the width of the sidenav */
   font-size: 16px; /* Increased text to enable scrolling */
   padding: 0px 10px;
+  position: relative;
+  top: 80px;
 }
 
 @media screen and (max-height: 450px) {
