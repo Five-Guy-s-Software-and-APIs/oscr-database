@@ -22,15 +22,15 @@
   </div>
   <form action="/search" method="GET" class="sidenav" id="search">
     <label for="fyear">Year of film</label>
-    <input type="text" name="year_film" id="fyear" placeholder="Year">
+    <input type="text" name="year_film" id="fyear" placeholder="Year" pattern="[12][09][0-9]{2}" title="A year between 1927 and 2020">
     <label for="name">Name of nominee</label>
-    <input type="text" name="name" id="name" placeholder="Name">
+    <input type="text" name="name" id="name" placeholder="Name" title="Name of person(s) nominated">
     <label for="film">Name of Film</label>
-    <input type="text" name="film" id="film" placeholder="Film">
+    <input type="text" name="film" id="film" placeholder="Film" title="Name of the film nominated">
     <label for="category">Category</label>
-    <input type="text" name="category" id="category" placeholder="Category"><br>
+    <input type="text" name="category" id="category" placeholder="Category" title="Nominee category"><br>
     <div id="container"></div>
-    <button type="button" href="#" id="filldetails" onclick="addFields()">Additional Category</button>
+    <button type="button" href="#" id="filldetails" onclick="addFields()" title="Add another category to search by">Additional Category</button>
     <button type="reset" href="#" id="cleardetails" onclick="clearFields()">Reset</button><br>
     <label for="winner">Show Only Winners</label>
     <input type="checkbox" class="largerCheckbox" name="winner" id="winner" value="true">

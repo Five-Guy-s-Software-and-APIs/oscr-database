@@ -38,13 +38,14 @@ function addFields() {
   // Append a node with a random text
   extraInput++;
   var label = document.createElement("label");
-  label.setAttribute("for", `category${extraInput}`);
+  label.setAttribute("for", `category ${extraInput}`);
   label.innerHTML = `Category ${extraInput}`;
   container.appendChild(label);
   // Create an <input> element, set its type and name attributes
   var input = document.createElement("input");
   input.type = "text";
-  input.name = `category${extraInput}`;
+  input.name = "category";
+  input.id = `category ${extraInput}`;
   input.placeholder = "Category";
   container.appendChild(input);
   // Append a line break
